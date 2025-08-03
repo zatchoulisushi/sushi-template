@@ -26,21 +26,21 @@ import { Menu, X, ShoppingBag, User } from 'lucide-astro';
 			
 			<!-- Actions -->
 			<div class="hidden md:flex items-center space-x-4">
-				<button class="p-3 rounded-full hover:bg-white/10 transition-colors relative min-w-[44px] min-h-[44px] flex items-center justify-center">
+				<button class="p-2 rounded-full hover:bg-white/10 transition-colors relative">
 					<ShoppingBag size={20} />
 					<span class="absolute -top-1 -right-1 bg-primary-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" id="cart-count">0</span>
 				</button>
-				<button class="p-3 rounded-full hover:bg-white/10 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center">
+				<button class="p-2 rounded-full hover:bg-white/10 transition-colors">
 					<User size={20} />
 				</button>
-				<button id="theme-toggle" class="p-3 rounded-full hover:bg-white/10 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center">
+				<button id="theme-toggle" class="p-2 rounded-full hover:bg-white/10 transition-colors">
 					🌙
 				</button>
 			</div>
 			
 			<!-- Mobile menu button -->
 			<div class="md:hidden">
-				<button class="mobile-menu-button p-3 rounded-md hover:bg-white/10 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center">
+				<button class="mobile-menu-button p-2 rounded-md hover:bg-white/10 transition-colors">
 					<Menu size={24} class="menu-icon" />
 					<X size={24} class="close-icon hidden" />
 				</button>
@@ -49,20 +49,20 @@ import { Menu, X, ShoppingBag, User } from 'lucide-astro';
 	</nav>
 	
 	<!-- Mobile menu -->
-	<div class="mobile-menu hidden md:hidden absolute top-full left-0 right-0 bg-dark-900/95 backdrop-blur-lg border-t border-white/10 shadow-xl">
-		<div class="px-4 py-6 space-y-4">
-			<a href="/" class="block py-3 text-lg hover:text-primary-600 transition-colors min-h-[44px] flex items-center">Accueil</a>
-			<a href="/menu" class="block py-3 text-lg hover:text-primary-600 transition-colors min-h-[44px] flex items-center">Menu</a>
-			<a href="/commander" class="block py-3 text-lg hover:text-primary-600 transition-colors min-h-[44px] flex items-center">Commander</a>
-			<a href="/fidelite" class="block py-3 text-lg hover:text-primary-600 transition-colors min-h-[44px] flex items-center">Fidélité</a>
-			<a href="/a-propos" class="block py-3 text-lg hover:text-primary-600 transition-colors min-h-[44px] flex items-center">À propos</a>
-			<a href="/contact" class="block py-3 text-lg hover:text-primary-600 transition-colors min-h-[44px] flex items-center">Contact</a>
-			<div class="flex items-center space-x-4 pt-4 border-t border-white/10">
-				<button class="p-3 rounded-full hover:bg-white/10 transition-colors relative min-w-[44px] min-h-[44px] flex items-center justify-center">
+	<div class="mobile-menu hidden md:hidden absolute top-full left-0 right-0 bg-dark-900/95 backdrop-blur-lg border-t border-white/10">
+		<div class="px-4 py-4 space-y-1">
+			<a href="/" class="block py-3 text-lg hover:text-primary-600 transition-colors">Accueil</a>
+			<a href="/menu" class="block py-3 text-lg hover:text-primary-600 transition-colors">Menu</a>
+			<a href="/commander" class="block py-3 text-lg hover:text-primary-600 transition-colors">Commander</a>
+			<a href="/fidelite" class="block py-3 text-lg hover:text-primary-600 transition-colors">Fidélité</a>
+			<a href="/a-propos" class="block py-3 text-lg hover:text-primary-600 transition-colors">À propos</a>
+			<a href="/contact" class="block py-3 text-lg hover:text-primary-600 transition-colors">Contact</a>
+			<div class="flex items-center space-x-4 pt-3 border-t border-white/10">
+				<button class="p-2 rounded-full hover:bg-white/10 transition-colors relative">
 					<ShoppingBag size={20} />
 					<span class="absolute -top-1 -right-1 bg-primary-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
 				</button>
-				<button class="p-3 rounded-full hover:bg-white/10 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center">
+				<button class="p-2 rounded-full hover:bg-white/10 transition-colors">
 					<User size={20} />
 				</button>
 			</div>
