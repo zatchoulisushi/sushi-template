@@ -71,7 +71,7 @@ const menuItems = [
 		</div>
 		
 		<!-- Filter buttons -->
-		<div class="flex flex-wrap justify-center gap-4 mb-12 scroll-reveal">
+		<div class="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12 scroll-reveal px-4">
 			<button class="filter-btn active" data-filter="all">Tout</button>
 			<button class="filter-btn" data-filter="sashimi">Sashimi</button>
 			<button class="filter-btn" data-filter="nigiri">Nigiri</button>
@@ -93,9 +93,23 @@ const menuItems = [
 
 <style>
 	.filter-btn {
-		@apply px-6 py-3 rounded-full font-medium transition-all duration-300 border border-white/20;
+		@apply px-4 py-3 rounded-full font-medium transition-all duration-300 border border-white/20;
 		background: rgba(255, 255, 255, 0.05);
 		color: rgba(255, 255, 255, 0.7);
+		min-height: 44px;
+		min-width: 80px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 0.875rem;
+	}
+	
+	@media (min-width: 640px) {
+		.filter-btn {
+			@apply px-6 py-3;
+			min-width: 100px;
+			font-size: 1rem;
+		}
 	}
 	
 	.filter-btn:hover {

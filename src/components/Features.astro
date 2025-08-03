@@ -15,43 +15,43 @@ import { Clock, Truck, Star, Award } from 'lucide-astro';
 			</p>
 		</div>
 		
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
 			<div class="feature-card scroll-reveal">
 				<div class="feature-icon">
-					<Clock size={32} />
+					<Clock size={28} class="sm:w-8 sm:h-8" />
 				</div>
-				<h3 class="text-xl font-semibold mb-3 text-white">Fraîcheur Garantie</h3>
-				<p class="text-white/70 leading-relaxed">
+				<h3 class="text-lg sm:text-xl font-semibold mb-3 text-white">Fraîcheur Garantie</h3>
+				<p class="text-white/70 leading-relaxed text-sm sm:text-base">
 					Poissons sélectionnés quotidiennement et préparés à la commande pour une fraîcheur optimale.
 				</p>
 			</div>
 			
 			<div class="feature-card scroll-reveal" style="animation-delay: 0.1s">
 				<div class="feature-icon">
-					<Truck size={32} />
+					<Truck size={28} class="sm:w-8 sm:h-8" />
 				</div>
-				<h3 class="text-xl font-semibold mb-3 text-white">Livraison Rapide</h3>
-				<p class="text-white/70 leading-relaxed">
+				<h3 class="text-lg sm:text-xl font-semibold mb-3 text-white">Livraison Rapide</h3>
+				<p class="text-white/70 leading-relaxed text-sm sm:text-base">
 					Livraison en 30 minutes maximum dans un rayon de 5km. Emballage isotherme de qualité.
 				</p>
 			</div>
 			
 			<div class="feature-card scroll-reveal" style="animation-delay: 0.2s">
 				<div class="feature-icon">
-					<Star size={32} />
+					<Star size={28} class="sm:w-8 sm:h-8" />
 				</div>
-				<h3 class="text-xl font-semibold mb-3 text-white">5★ sur Google</h3>
-				<p class="text-white/70 leading-relaxed">
+				<h3 class="text-lg sm:text-xl font-semibold mb-3 text-white">5★ sur Google</h3>
+				<p class="text-white/70 leading-relaxed text-sm sm:text-base">
 					Plus de 500 avis clients attestent de la qualité exceptionnelle de nos créations.
 				</p>
 			</div>
 			
 			<div class="feature-card scroll-reveal" style="animation-delay: 0.3s">
 				<div class="feature-icon">
-					<Award size={32} />
+					<Award size={28} class="sm:w-8 sm:h-8" />
 				</div>
-				<h3 class="text-xl font-semibold mb-3 text-white">Chef Certifié</h3>
-				<p class="text-white/70 leading-relaxed">
+				<h3 class="text-lg sm:text-xl font-semibold mb-3 text-white">Chef Certifié</h3>
+				<p class="text-white/70 leading-relaxed text-sm sm:text-base">
 					Notre chef a étudié 3 ans au Japon et maîtrise l'art traditionnel du sushi.
 				</p>
 			</div>
@@ -61,7 +61,7 @@ import { Clock, Truck, Star, Award } from 'lucide-astro';
 
 <style>
 	.feature-card {
-		@apply p-8 rounded-2xl backdrop-blur-sm transition-all duration-500 hover:scale-105;
+		@apply p-6 sm:p-8 rounded-2xl backdrop-blur-sm transition-all duration-500 hover:scale-105;
 		background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
 		border: 1px solid rgba(255,255,255,0.1);
 	}
@@ -73,7 +73,7 @@ import { Clock, Truck, Star, Award } from 'lucide-astro';
 	}
 	
 	.feature-icon {
-		@apply w-16 h-16 bg-gradient-to-br from-primary-600 to-primary-700 rounded-2xl flex items-center justify-center mb-6 text-white transition-transform duration-300;
+		@apply w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-primary-600 to-primary-700 rounded-2xl flex items-center justify-center mb-4 sm:mb-6 text-white transition-transform duration-300;
 	}
 	
 	.feature-card:hover .feature-icon {

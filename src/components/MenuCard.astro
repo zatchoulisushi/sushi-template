@@ -44,7 +44,7 @@ const { id, name, description, price, image, category, popular } = Astro.props;
 				{price.toFixed(2)}€
 			</span>
 			
-			<button class="add-to-cart-btn relative overflow-hidden bg-primary-600 hover:bg-primary-700 text-white p-3 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg" data-id={id} data-name={name} data-price={price}>
+			<button class="add-to-cart-btn relative overflow-hidden bg-primary-600 hover:bg-primary-700 text-white p-3 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg min-w-[44px] min-h-[44px] flex items-center justify-center" data-id={id} data-name={name} data-price={price}>
 				<Plus size={20} />
 				<div class="absolute inset-0 bg-white/20 transform scale-0 transition-transform duration-300 rounded-full"></div>
 			</button>
