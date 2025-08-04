@@ -1,129 +1,574 @@
 ---
-import { ChevronDown } from 'lucide-astro';
+import { ChevronDown, Sparkles } from 'lucide-astro';
 ---
 
-<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-	<!-- Background with parallax effect -->
-	<div class="absolute inset-0 z-0">
-		<div class="absolute inset-0 bg-gradient-to-br from-dark-950 via-dark-900 to-primary-950"></div>
-		<div class="absolute inset-0 bg-[url('https://images.pexels.com/photos/357756/pexels-photo-357756.jpeg')] bg-cover bg-center opacity-20"></div>
-		<div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-transparent to-transparent"></div>
-	</div>
-	
-	<!-- Animated particles -->
-	<div class="absolute inset-0 overflow-hidden pointer-events-none">
-		<div class="particle particle-1"></div>
-		<div class="particle particle-2"></div>
-		<div class="particle particle-3"></div>
-		<div class="particle particle-4"></div>
-		<div class="particle particle-5"></div>
-	</div>
-	
-	<!-- Content -->
-	<div class="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="hero-content">
-			<div class="mb-8 animate-float">
-				<span class="text-8xl sm:text-9xl">🍣</span>
-			</div>
-			
-			<h1 class="text-5xl sm:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-white to-primary-500 bg-clip-text text-transparent">
-				Osushi
-			</h1>
-			
-			<p class="text-xl sm:text-2xl text-white/80 mb-8 font-light leading-relaxed">
-				L'art culinaire japonais dans sa plus pure tradition
-			</p>
-			
-			<p class="text-lg text-white/60 mb-12 max-w-2xl mx-auto">
-				Découvrez une expérience gastronomique unique où chaque sushi est une œuvre d'art, 
-				préparée avec passion par nos maîtres sushi.
-			</p>
-			
-			<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-				<a href="/commander" class="btn-primary group">
-					<span>Commander maintenant</span>
-					<div class="btn-glow"></div>
-				</a>
-				<a href="/menu" class="btn-secondary">
-					Découvrir le menu
-				</a>
-			</div>
-		</div>
-	</div>
-	
-	<!-- Scroll indicator -->
-	<div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-		<ChevronDown size={32} class="text-white/60" />
-	</div>
+<section class="hero-section relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Dynamic Background Layers -->
+  <div class="hero-bg-layer hero-bg-primary"></div>
+  <div class="hero-bg-layer hero-bg-secondary"></div>
+  <div class="hero-bg-layer hero-bg-pattern"></div>
+  
+  <!-- Floating Sakura Petals -->
+  <div class="sakura-container">
+    <div class="sakura-petal" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="sakura-petal" style="left: 20%; animation-delay: 2s;"></div>
+    <div class="sakura-petal" style="left: 30%; animation-delay: 4s;"></div>
+    <div class="sakura-petal" style="left: 70%; animation-delay: 1s;"></div>
+    <div class="sakura-petal" style="left: 80%; animation-delay: 3s;"></div>
+    <div class="sakura-petal" style="left: 90%; animation-delay: 5s;"></div>
+  </div>
+  
+  <!-- Main Content -->
+  <div class="hero-content relative z-20 text-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Japanese Character Decoration -->
+    <div class="japanese-chars">
+      <span class="char-decoration" style="top: 10%; left: 15%;">寿</span>
+      <span class="char-decoration" style="top: 20%; right: 15%;">司</span>
+      <span class="char-decoration" style="bottom: 30%; left: 10%;">美</span>
+      <span class="char-decoration" style="bottom: 20%; right: 20%;">味</span>
+    </div>
+    
+    <!-- Logo Animation -->
+    <div class="hero-logo-container">
+      <div class="hero-logo">
+        <span class="sushi-icon">🍣</span>
+        <div class="logo-rings">
+          <div class="ring ring-1"></div>
+          <div class="ring ring-2"></div>
+          <div class="ring ring-3"></div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Main Title with Premium Typography -->
+    <h1 class="hero-title heading-primary">
+      <span class="title-line title-line-1">
+        <span class="letter" style="animation-delay: 0.1s">O</span>
+        <span class="letter" style="animation-delay: 0.2s">S</span>
+        <span class="letter" style="animation-delay: 0.3s">U</span>
+        <span class="letter" style="animation-delay: 0.4s">S</span>
+        <span class="letter" style="animation-delay: 0.5s">H</span>
+        <span class="letter" style="animation-delay: 0.6s">I</span>
+      </span>
+    </h1>
+    
+    <!-- Japanese Subtitle -->
+    <div class="hero-subtitle text-japanese">
+      <span class="japanese-text">おいしい寿司</span>
+      <span class="subtitle-translation">L'Art Authentique du Sushi</span>
+    </div>
+    
+    <!-- Premium Description -->
+    <p class="hero-description">
+      Découvrez l'excellence culinaire japonaise dans chaque bouchée. 
+      <br class="hidden sm:block">
+      Une expérience gastronomique transcendante qui éveille tous vos sens.
+    </p>
+    
+    <!-- CTA Buttons with Advanced Effects -->
+    <div class="hero-cta">
+      <a href="/commander" class="btn-hero-primary group">
+        <span class="btn-text">Commander Maintenant</span>
+        <div class="btn-glow"></div>
+        <div class="btn-particles">
+          <span class="particle"></span>
+          <span class="particle"></span>
+          <span class="particle"></span>
+        </div>
+      </a>
+      
+      <a href="/menu" class="btn-hero-secondary">
+        <Sparkles size={20} />
+        <span>Découvrir le Menu</span>
+      </a>
+    </div>
+    
+    <!-- Premium Stats -->
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Années d'Excellence</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Clients Satisfaits</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-number">★★★★★</div>
+        <div class="stat-label">Excellence Reconnue</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Scroll Indicator with Animation -->
+  <div class="scroll-indicator">
+    <div class="scroll-text">Découvrir</div>
+    <ChevronDown size={24} class="scroll-arrow" />
+    <div class="scroll-line"></div>
+  </div>
 </section>
 
 <style>
-	.hero-content {
-		animation: slideUp 1s ease-out;
-	}
-	
-	.btn-primary {
-		@apply relative px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl;
-	}
-	
-	.btn-primary:hover .btn-glow {
-		opacity: 1;
-	}
-	
-	.btn-glow {
-		position: absolute;
-		inset: 0;
-		background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%);
-		opacity: 0;
-		transition: opacity 0.3s ease;
-		animation: shimmer 2s infinite;
-	}
-	
-	.btn-secondary {
-		@apply px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-full hover:bg-white/10 hover:border-white/50 transition-all duration-300;
-	}
-	
-	.particle {
-		position: absolute;
-		width: 4px;
-		height: 4px;
-		background: radial-gradient(circle, #dc2626, transparent);
-		border-radius: 50%;
-		opacity: 0.6;
-	}
-	
-	.particle-1 {
-		top: 20%;
-		left: 10%;
-		animation: float 4s ease-in-out infinite;
-	}
-	
-	.particle-2 {
-		top: 50%;
-		right: 15%;
-		animation: float 3s ease-in-out infinite 1s;
-	}
-	
-	.particle-3 {
-		bottom: 30%;
-		left: 20%;
-		animation: float 5s ease-in-out infinite 2s;
-	}
-	
-	.particle-4 {
-		top: 30%;
-		right: 30%;
-		animation: float 3.5s ease-in-out infinite 0.5s;
-	}
-	
-	.particle-5 {
-		bottom: 20%;
-		right: 10%;
-		animation: float 4.5s ease-in-out infinite 1.5s;
-	}
-	
-	@keyframes shimmer {
-		0% { transform: translateX(-100%); }
-		100% { transform: translateX(100%); }
-	}
+  .hero-section {
+    position: relative;
+    background: var(--sushi-black);
+    overflow: hidden;
+  }
+  
+  /* Background Layers */
+  .hero-bg-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+  
+  .hero-bg-primary {
+    background: radial-gradient(ellipse at center, rgba(196, 30, 58, 0.15) 0%, transparent 70%);
+  }
+  
+  .hero-bg-secondary {
+    background: linear-gradient(135deg, 
+      rgba(212, 175, 55, 0.1) 0%, 
+      transparent 30%, 
+      transparent 70%, 
+      rgba(196, 30, 58, 0.1) 100%);
+  }
+  
+  .hero-bg-pattern {
+    background-image: 
+      radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(196, 30, 58, 0.1) 0%, transparent 50%);
+  }
+  
+  /* Sakura Petals Animation */
+  .sakura-container {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+  }
+  
+  .sakura-petal {
+    position: absolute;
+    top: -10px;
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle, var(--sushi-red-light) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: fallingSakura 15s linear infinite;
+    opacity: 0.7;
+  }
+  
+  @keyframes fallingSakura {
+    0% {
+      transform: translateY(-10px) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.7;
+    }
+    90% {
+      opacity: 0.7;
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+  
+  /* Japanese Characters */
+  .japanese-chars {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  .char-decoration {
+    position: absolute;
+    font-family: 'Noto Sans JP', serif;
+    font-size: 120px;
+    font-weight: 300;
+    color: rgba(212, 175, 55, 0.1);
+    animation: floatChar 6s ease-in-out infinite;
+  }
+  
+  @keyframes floatChar {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
+  }
+  
+  /* Hero Logo */
+  .hero-logo-container {
+    margin-bottom: 3rem;
+    animation: logoEntrance 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .hero-logo {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .sushi-icon {
+    font-size: 120px;
+    display: block;
+    position: relative;
+    z-index: 10;
+    animation: iconFloat 3s ease-in-out infinite;
+  }
+  
+  .logo-rings {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .ring {
+    position: absolute;
+    border: 2px solid;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .ring-1 {
+    width: 140px;
+    height: 140px;
+    border-color: rgba(196, 30, 58, 0.3);
+    animation: ringPulse 4s ease-in-out infinite;
+  }
+  
+  .ring-2 {
+    width: 180px;
+    height: 180px;
+    border-color: rgba(212, 175, 55, 0.2);
+    animation: ringPulse 4s ease-in-out infinite 1s;
+  }
+  
+  .ring-3 {
+    width: 220px;
+    height: 220px;
+    border-color: rgba(196, 30, 58, 0.1);
+    animation: ringPulse 4s ease-in-out infinite 2s;
+  }
+  
+  @keyframes logoEntrance {
+    0% {
+      opacity: 0;
+      transform: scale(0.5) rotate(-180deg);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+  }
+  
+  @keyframes iconFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes ringPulse {
+    0%, 100% { 
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.3;
+    }
+    50% { 
+      transform: translate(-50%, -50%) scale(1.1);
+      opacity: 0.6;
+    }
+  }
+  
+  /* Hero Title */
+  .hero-title {
+    font-size: clamp(4rem, 12vw, 8rem);
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  
+  .title-line-1 {
+    display: block;
+    background: linear-gradient(135deg, var(--sushi-white) 0%, var(--sushi-gold) 50%, var(--sushi-red-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+  }
+  
+  .letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(50px) rotateX(90deg);
+    animation: letterReveal 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+  
+  @keyframes letterReveal {
+    0% {
+      opacity: 0;
+      transform: translateY(50px) rotateX(90deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) rotateX(0deg);
+    }
+  }
+  
+  /* Hero Subtitle */
+  .hero-subtitle {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .japanese-text {
+    display: block;
+    font-size: 2rem;
+    color: var(--sushi-gold);
+    margin-bottom: 0.5rem;
+    animation: fadeInUp 1s ease-out 1s both;
+  }
+  
+  .subtitle-translation {
+    display: block;
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    animation: fadeInUp 1s ease-out 1.2s both;
+  }
+  
+  /* Hero Description */
+  .hero-description {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    animation: fadeInUp 1s ease-out 1.4s both;
+  }
+  
+  /* CTA Buttons */
+  .hero-cta {
+    display: flex;
+    flex-direction: column;
+    sm:flex-direction: row;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4rem;
+    animation: fadeInUp 1s ease-out 1.6s both;
+  }
+  
+  .btn-hero-primary {
+    position: relative;
+    padding: 20px 40px;
+    background: var(--gradient-sunset);
+    color: var(--sushi-white);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 20px 40px rgba(196, 30, 58, 0.3);
+  }
+  
+  .btn-text {
+    position: relative;
+    z-index: 10;
+  }
+  
+  .btn-glow {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+  }
+  
+  .btn-hero-primary:hover .btn-glow {
+    transform: translateX(100%);
+  }
+  
+  .btn-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  
+  .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--sushi-gold);
+    border-radius: 50%;
+    opacity: 0;
+  }
+  
+  .btn-hero-primary:hover .particle {
+    animation: particleExplode 0.6s ease-out;
+  }
+  
+  .particle:nth-child(1) { top: 20%; left: 20%; animation-delay: 0s; }
+  .particle:nth-child(2) { top: 50%; right: 20%; animation-delay: 0.1s; }
+  .particle:nth-child(3) { bottom: 20%; left: 50%; animation-delay: 0.2s; }
+  
+  @keyframes particleExplode {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0) translateY(-20px);
+    }
+  }
+  
+  .btn-hero-primary:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 30px 60px rgba(196, 30, 58, 0.4);
+  }
+  
+  .btn-hero-secondary {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 16px 32px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: var(--sushi-white);
+    text-decoration: none;
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-hero-secondary:hover {
+    background: rgba(212, 175, 55, 0.2);
+    border-color: var(--sushi-gold);
+    transform: translateY(-2px);
+  }
+  
+  /* Hero Stats */
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    animation: fadeInUp 1s ease-out 1.8s both;
+  }
+  
+  .stat-item {
+    text-align: center;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--sushi-gold);
+    margin-bottom: 0.5rem;
+  }
+  
+  .stat-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  
+  .stat-divider {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, var(--sushi-gold), transparent);
+  }
+  
+  /* Scroll Indicator */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.6);
+    animation: fadeInUp 1s ease-out 2s both;
+  }
+  
+  .scroll-text {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  
+  .scroll-arrow {
+    animation: bounce 2s infinite;
+  }
+  
+  .scroll-line {
+    width: 1px;
+    height: 30px;
+    background: linear-gradient(to bottom, var(--sushi-gold), transparent);
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .char-decoration {
+      font-size: 80px;
+    }
+    
+    .sushi-icon {
+      font-size: 80px;
+    }
+    
+    .ring-1 { width: 100px; height: 100px; }
+    .ring-2 { width: 130px; height: 130px; }
+    .ring-3 { width: 160px; height: 160px; }
+    
+    .japanese-text {
+      font-size: 1.5rem;
+    }
+    
+    .subtitle-translation {
+      font-size: 1.2rem;
+    }
+    
+    .hero-description {
+      font-size: 1.1rem;
+    }
+    
+    .hero-stats {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .stat-divider {
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--sushi-gold), transparent);
+    }
+  }
 </style>

@@ -1,136 +1,736 @@
 ---
-import { Menu, X, ShoppingBag, User } from 'lucide-astro';
+import { Menu, X, ShoppingBag, User, Search } from 'lucide-astro';
 ---
 
-<header class="fixed top-0 left-0 right-0 z-40 transition-all duration-300" id="header">
-	<nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="flex justify-between items-center h-16">
-			<!-- Logo -->
-			<div class="flex-shrink-0">
-				<a href="/" class="text-2xl font-bold text-primary-600 hover:text-primary-500 transition-colors">
-					<span class="text-3xl">🍣</span> Osushi
-				</a>
-			</div>
-			
-			<!-- Desktop Navigation -->
-			<div class="hidden md:block">
-				<div class="ml-10 flex items-baseline space-x-8">
-					<a href="/" class="nav-link">Accueil</a>
-					<a href="/menu" class="nav-link">Menu</a>
-					<a href="/commander" class="nav-link">Commander</a>
-					<a href="/fidelite" class="nav-link">Fidélité</a>
-					<a href="/a-propos" class="nav-link">À propos</a>
-					<a href="/contact" class="nav-link">Contact</a>
-				</div>
-			</div>
-			
-			<!-- Actions -->
-			<div class="hidden md:flex items-center space-x-4">
-				<button class="p-2 rounded-full hover:bg-white/10 transition-colors relative">
-					<ShoppingBag size={20} />
-					<span class="absolute -top-1 -right-1 bg-primary-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" id="cart-count">0</span>
-				</button>
-				<button class="p-2 rounded-full hover:bg-white/10 transition-colors">
-					<User size={20} />
-				</button>
-				<button id="theme-toggle" class="p-2 rounded-full hover:bg-white/10 transition-colors">
-					🌙
-				</button>
-			</div>
-			
-			<!-- Mobile menu button -->
-			<div class="md:hidden">
-				<button class="mobile-menu-button p-2 rounded-md hover:bg-white/10 transition-colors">
-					<Menu size={24} />
-				</button>
-			</div>
-		</div>
-	</nav>
-	
-	<!-- Mobile menu -->
-	<div class="mobile-menu hidden md:hidden absolute top-full left-0 right-0 bg-dark-900/95 backdrop-blur-lg border-t border-white/10">
-		<div class="px-4 py-6 space-y-4">
-			<a href="/" class="block py-2 text-lg hover:text-primary-600 transition-colors">Accueil</a>
-			<a href="/menu" class="block py-2 text-lg hover:text-primary-600 transition-colors">Menu</a>
-			<a href="/commander" class="block py-2 text-lg hover:text-primary-600 transition-colors">Commander</a>
-			<a href="/fidelite" class="block py-2 text-lg hover:text-primary-600 transition-colors">Fidélité</a>
-			<a href="/a-propos" class="block py-2 text-lg hover:text-primary-600 transition-colors">À propos</a>
-			<a href="/contact" class="block py-2 text-lg hover:text-primary-600 transition-colors">Contact</a>
-			<div class="flex items-center space-x-4 pt-4 border-t border-white/10">
-				<button class="p-2 rounded-full hover:bg-white/10 transition-colors relative">
-					<ShoppingBag size={20} />
-					<span class="absolute -top-1 -right-1 bg-primary-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
-				</button>
-				<button class="p-2 rounded-full hover:bg-white/10 transition-colors">
-					<User size={20} />
-				</button>
-			</div>
-		</div>
-	</div>
+<header class="header-premium fixed top-0 left-0 right-0 z-50" id="header">
+  <!-- Premium Background Blur -->
+  <div class="header-backdrop"></div>
+  
+  <nav class="header-nav max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="nav-container flex justify-between items-center h-20">
+      <!-- Premium Logo -->
+      <div class="logo-container">
+        <a href="/" class="logo-link group">
+          <div class="logo-icon">
+            <span class="sushi-emoji">🍣</span>
+            <div class="logo-glow"></div>
+          </div>
+          <div class="logo-text">
+            <span class="brand-name heading-secondary">Osushi</span>
+            <span class="brand-tagline text-japanese">おいしい</span>
+          </div>
+        </a>
+      </div>
+      
+      <!-- Desktop Navigation -->
+      <div class="nav-menu hidden lg:flex">
+        <div class="nav-links">
+          <a href="/" class="nav-link active">
+            <span class="link-text">Accueil</span>
+            <div class="link-underline"></div>
+          </a>
+          <a href="/menu" class="nav-link">
+            <span class="link-text">Menu</span>
+            <div class="link-underline"></div>
+          </a>
+          <a href="/commander" class="nav-link">
+            <span class="link-text">Commander</span>
+            <div class="link-underline"></div>
+          </a>
+          <a href="/fidelite" class="nav-link">
+            <span class="link-text">Fidélité</span>
+            <div class="link-underline"></div>
+          </a>
+          <a href="/a-propos" class="nav-link">
+            <span class="link-text">À propos</span>
+            <div class="link-underline"></div>
+          </a>
+          <a href="/contact" class="nav-link">
+            <span class="link-text">Contact</span>
+            <div class="link-underline"></div>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Premium Actions -->
+      <div class="nav-actions hidden lg:flex items-center space-x-4">
+        <!-- Search Button -->
+        <button class="action-btn search-btn" aria-label="Rechercher">
+          <Search size={20} />
+          <div class="btn-ripple"></div>
+        </button>
+        
+        <!-- Cart Button with Animation -->
+        <button class="action-btn cart-btn relative" aria-label="Panier">
+          <ShoppingBag size={20} />
+          <span class="cart-badge" id="cart-count">0</span>
+          <div class="cart-pulse"></div>
+          <div class="btn-ripple"></div>
+        </button>
+        
+        <!-- User Button -->
+        <button class="action-btn user-btn" aria-label="Compte utilisateur">
+          <User size={20} />
+          <div class="btn-ripple"></div>
+        </button>
+        
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="action-btn theme-btn" aria-label="Changer le thème">
+          <span class="theme-icon">🌙</span>
+          <div class="btn-ripple"></div>
+        </button>
+        
+        <!-- CTA Button -->
+        <a href="/commander" class="cta-btn">
+          <span class="cta-text">Commander</span>
+          <div class="cta-glow"></div>
+        </a>
+      </div>
+      
+      <!-- Mobile Menu Button -->
+      <div class="mobile-menu-container lg:hidden">
+        <button class="mobile-menu-btn" aria-label="Menu mobile">
+          <div class="hamburger">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay hidden lg:hidden">
+    <div class="mobile-menu-content">
+      <div class="mobile-menu-header">
+        <div class="mobile-logo">
+          <span class="sushi-emoji">🍣</span>
+          <span class="brand-name">Osushi</span>
+        </div>
+        <button class="mobile-close-btn">
+          <X size={24} />
+        </button>
+      </div>
+      
+      <nav class="mobile-nav">
+        <a href="/" class="mobile-nav-link">
+          <span class="mobile-link-text">Accueil</span>
+          <div class="mobile-link-arrow">→</div>
+        </a>
+        <a href="/menu" class="mobile-nav-link">
+          <span class="mobile-link-text">Menu</span>
+          <div class="mobile-link-arrow">→</div>
+        </a>
+        <a href="/commander" class="mobile-nav-link">
+          <span class="mobile-link-text">Commander</span>
+          <div class="mobile-link-arrow">→</div>
+        </a>
+        <a href="/fidelite" class="mobile-nav-link">
+          <span class="mobile-link-text">Fidélité</span>
+          <div class="mobile-link-arrow">→</div>
+        </a>
+        <a href="/a-propos" class="mobile-nav-link">
+          <span class="mobile-link-text">À propos</span>
+          <div class="mobile-link-arrow">→</div>
+        </a>
+        <a href="/contact" class="mobile-nav-link">
+          <span class="mobile-link-text">Contact</span>
+          <div class="mobile-link-arrow">→</div>
+        </a>
+      </nav>
+      
+      <div class="mobile-actions">
+        <div class="mobile-action-buttons">
+          <button class="mobile-action-btn">
+            <ShoppingBag size={20} />
+            <span>Panier</span>
+            <span class="mobile-cart-badge">0</span>
+          </button>
+          <button class="mobile-action-btn">
+            <User size={20} />
+            <span>Compte</span>
+          </button>
+        </div>
+        
+        <a href="/commander" class="mobile-cta-btn">
+          Commander Maintenant
+        </a>
+      </div>
+    </div>
+  </div>
 </header>
 
 <style>
-	.nav-link {
-		@apply text-white/80 hover:text-white font-medium transition-all duration-200 relative;
-	}
-	
-	.nav-link::after {
-		content: '';
-		position: absolute;
-		bottom: -4px;
-		left: 50%;
-		width: 0;
-		height: 2px;
-		background: linear-gradient(90deg, #dc2626, #ef4444);
-		transition: all 0.3s ease;
-		transform: translateX(-50%);
-	}
-	
-	.nav-link:hover::after {
-		width: 100%;
-	}
-	
-	#header {
-		background: rgba(10, 10, 10, 0.1);
-		backdrop-filter: blur(20px);
-	}
-	
-	#header.scrolled {
-		background: rgba(10, 10, 10, 0.95);
-		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-	}
+  .header-premium {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .header-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.1);
+    backdrop-filter: blur(20px);
+    transition: all 0.3s ease;
+  }
+  
+  .header-premium.scrolled .header-backdrop {
+    background: rgba(10, 10, 10, 0.95);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+  
+  .header-nav {
+    position: relative;
+    z-index: 10;
+  }
+  
+  .nav-container {
+    position: relative;
+  }
+  
+  /* Premium Logo */
+  .logo-container {
+    position: relative;
+  }
+  
+  .logo-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .logo-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .sushi-emoji {
+    font-size: 2rem;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+  }
+  
+  .logo-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, rgba(196, 30, 58, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .logo-link:hover .logo-glow {
+    opacity: 1;
+  }
+  
+  .logo-link:hover .sushi-emoji {
+    transform: rotate(10deg) scale(1.1);
+  }
+  
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .brand-name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--sushi-white);
+    line-height: 1;
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .brand-tagline {
+    font-size: 0.75rem;
+    color: rgba(212, 175, 55, 0.8);
+    line-height: 1;
+    margin-top: -2px;
+  }
+  
+  /* Navigation Links */
+  .nav-menu {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .nav-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .link-text {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+  }
+  
+  .link-underline {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-sunset);
+    transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .nav-link:hover .link-text,
+  .nav-link.active .link-text {
+    color: var(--sushi-white);
+  }
+  
+  .nav-link:hover .link-underline,
+  .nav-link.active .link-underline {
+    width: 100%;
+  }
+  
+  /* Action Buttons */
+  .nav-actions {
+    position: relative;
+  }
+  
+  .action-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+  
+  .action-btn:hover {
+    background: rgba(196, 30, 58, 0.2);
+    border-color: rgba(196, 30, 58, 0.3);
+    color: var(--sushi-white);
+    transform: translateY(-2px);
+  }
+  
+  .btn-ripple {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    transform: scale(0);
+    transition: transform 0.3s ease;
+  }
+  
+  .action-btn:active .btn-ripple {
+    transform: scale(1);
+  }
+  
+  /* Cart Badge */
+  .cart-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: var(--gradient-sunset);
+    color: var(--sushi-white);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 10px;
+    min-width: 18px;
+    text-align: center;
+    animation: cartBadgePulse 2s ease-in-out infinite;
+  }
+  
+  .cart-pulse {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 18px;
+    height: 18px;
+    background: var(--sushi-red);
+    border-radius: 50%;
+    opacity: 0;
+    animation: cartPulse 2s ease-in-out infinite;
+  }
+  
+  @keyframes cartBadgePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+  
+  @keyframes cartPulse {
+    0% {
+      transform: scale(0.8);
+      opacity: 0.7;
+    }
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+  
+  /* CTA Button */
+  .cta-btn {
+    position: relative;
+    padding: 12px 24px;
+    background: var(--gradient-sunset);
+    color: var(--sushi-white);
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(196, 30, 58, 0.3);
+  }
+  
+  .cta-text {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .cta-glow {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+  }
+  
+  .cta-btn:hover .cta-glow {
+    transform: translateX(100%);
+  }
+  
+  .cta-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 12px 35px rgba(196, 30, 58, 0.4);
+  }
+  
+  /* Mobile Menu */
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .hamburger-line {
+    width: 20px;
+    height: 2px;
+    background: var(--sushi-white);
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-menu-btn.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+  
+  .mobile-menu-btn.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .mobile-menu-btn.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+  
+  /* Mobile Menu Overlay */
+  .mobile-menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(20px);
+    z-index: 40;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .mobile-menu-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 2rem;
+  }
+  
+  .mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+  
+  .mobile-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .mobile-logo .sushi-emoji {
+    font-size: 1.5rem;
+  }
+  
+  .mobile-logo .brand-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .mobile-close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    color: var(--sushi-white);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .mobile-nav-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-link-text {
+    color: var(--sushi-white);
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+  
+  .mobile-link-arrow {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-nav-link:hover .mobile-link-arrow {
+    color: var(--sushi-gold);
+    transform: translateX(5px);
+  }
+  
+  .mobile-actions {
+    margin-top: 2rem;
+  }
+  
+  .mobile-action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .mobile-action-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    color: var(--sushi-white);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .mobile-cart-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: var(--gradient-sunset);
+    color: var(--sushi-white);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 10px;
+    min-width: 18px;
+    text-align: center;
+  }
+  
+  .mobile-cta-btn {
+    display: block;
+    width: 100%;
+    padding: 1.25rem;
+    background: var(--gradient-sunset);
+    color: var(--sushi-white);
+    text-align: center;
+    text-decoration: none;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(196, 30, 58, 0.3);
+  }
+  
+  .mobile-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(196, 30, 58, 0.4);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .nav-menu {
+      display: none;
+    }
+    
+    .nav-actions {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .brand-name {
+      font-size: 1.5rem;
+    }
+    
+    .brand-tagline {
+      font-size: 0.7rem;
+    }
+  }
 </style>
 
 <script>
-	// Header scroll effect
-	const header = document.getElementById('header');
-	let lastScrollY = window.scrollY;
-	
-	window.addEventListener('scroll', () => {
-		const currentScrollY = window.scrollY;
-		
-		if (currentScrollY > 50) {
-			header.classList.add('scrolled');
-		} else {
-			header.classList.remove('scrolled');
-		}
-		
-		lastScrollY = currentScrollY;
-	});
-	
-	// Mobile menu toggle
-	const mobileMenuButton = document.querySelector('.mobile-menu-button');
-	const mobileMenu = document.querySelector('.mobile-menu');
-	
-	mobileMenuButton?.addEventListener('click', () => {
-		mobileMenu?.classList.toggle('hidden');
-	});
-	
-	// Theme toggle
-	const themeToggle = document.getElementById('theme-toggle');
-	
-	themeToggle?.addEventListener('click', () => {
-		document.documentElement.classList.toggle('dark');
-		themeToggle.textContent = document.documentElement.classList.contains('dark') ? '🌙' : '☀️';
-	});
+  // Header scroll effect
+  const header = document.getElementById('header');
+  let lastScrollY = window.scrollY;
+  
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+    
+    if (currentScrollY > 50) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
+    
+    lastScrollY = currentScrollY;
+  });
+  
+  // Mobile menu toggle
+  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+  const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+  const mobileCloseBtn = document.querySelector('.mobile-close-btn');
+  
+  function toggleMobileMenu() {
+    mobileMenuBtn?.classList.toggle('active');
+    mobileMenuOverlay?.classList.toggle('active');
+    document.body.style.overflow = mobileMenuOverlay?.classList.contains('active') ? 'hidden' : '';
+  }
+  
+  mobileMenuBtn?.addEventListener('click', toggleMobileMenu);
+  mobileCloseBtn?.addEventListener('click', toggleMobileMenu);
+  
+  // Close mobile menu when clicking on overlay
+  mobileMenuOverlay?.addEventListener('click', (e) => {
+    if (e.target === mobileMenuOverlay) {
+      toggleMobileMenu();
+    }
+  });
+  
+  // Theme toggle
+  const themeToggle = document.getElementById('theme-toggle');
+  
+  themeToggle?.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+    const isDark = document.documentElement.classList.contains('dark');
+    const themeIcon = themeToggle.querySelector('.theme-icon');
+    if (themeIcon) {
+      themeIcon.textContent = isDark ? '🌙' : '☀️';
+    }
+  });
+  
+  // Active navigation link
+  const currentPath = window.location.pathname;
+  const navLinks = document.querySelectorAll('.nav-link');
+  
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === currentPath) {
+      link.classList.add('active');
+    }
+  });
+  
+  // Cart animation
+  let cartCount = 0;
+  const cartBadge = document.getElementById('cart-count');
+  const mobileCartBadge = document.querySelector('.mobile-cart-badge');
+  
+  function updateCartCount(count) {
+    cartCount = count;
+    if (cartBadge) cartBadge.textContent = count.toString();
+    if (mobileCartBadge) mobileCartBadge.textContent = count.toString();
+  }
+  
+  // Ripple effect for buttons
+  document.querySelectorAll('.action-btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      const ripple = this.querySelector('.btn-ripple');
+      if (ripple) {
+        ripple.style.transform = 'scale(1)';
+        setTimeout(() => {
+          ripple.style.transform = 'scale(0)';
+        }, 300);
+      }
+    });
+  });
 </script>

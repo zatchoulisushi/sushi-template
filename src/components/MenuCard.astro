@@ -1,5 +1,5 @@
 ---
-import { Plus, Star } from 'lucide-astro';
+import { Plus, Star, Clock, Flame } from 'lucide-astro';
 
 interface Props {
 	id: number;
@@ -14,122 +14,857 @@ interface Props {
 const { id, name, description, price, image, category, popular } = Astro.props;
 ---
 
-<div class={`menu-card group relative bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-500 hover:scale-105 hover:shadow-2xl ${popular ? 'ring-2 ring-primary-600/50' : ''}`} data-category={category}>
-	{popular && (
-		<div class="absolute top-4 left-4 z-10 bg-primary-600 text-white px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1">
-			<Star size={14} fill="currentColor" />
-			Populaire
+<div class={`menu-card-premium group ${popular ? 'popular' : ''}`} data-category={category}>
+	<!-- Premium Badge System -->
+	<div class="card-badges">
+		{popular && (
+			<div class="badge badge-popular">
+				<Star size={14} fill="currentColor" />
+				<span>Populaire</span>
+				<div class="badge-glow"></div>
+			</div>
+		)}
+		<div class="badge badge-fresh">
+			<Flame size={14} />
+			<span>Frais</span>
 		</div>
-	)}
+	</div>
 	
-	<div class="aspect-video overflow-hidden">
+	<!-- Image Container with Advanced Effects -->
+	<div class="card-image-container">
+		<div class="image-overlay"></div>
 		<img 
 			src={image} 
 			alt={name}
-			class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+			class="card-image"
 			loading="lazy"
 		/>
+		
+		<!-- Floating Elements -->
+		<div class="floating-elements">
+			<div class="float-element float-1">🌸</div>
+			<div class="float-element float-2">✨</div>
+			<div class="float-element float-3">🍃</div>
+		</div>
+		
+		<!-- Quick View Button -->
+		<button class="quick-view-btn">
+			<span>Aperçu Rapide</span>
+		</button>
 	</div>
 	
-	<div class="p-6">
-		<h3 class="text-xl font-semibold mb-2 text-white group-hover:text-primary-400 transition-colors">
-			{name}
-		</h3>
-		<p class="text-white/70 text-sm mb-4 leading-relaxed">
+	<!-- Card Content -->
+	<div class="card-content">
+		<!-- Header -->
+		<div class="content-header">
+			<h3 class="dish-name heading-secondary">
+				{name}
+			</h3>
+			<div class="prep-time">
+				<Clock size={14} />
+				<span>15 min</span>
+			</div>
+		</div>
+		
+		<!-- Description -->
+		<p class="dish-description">
 			{description}
 		</p>
 		
-		<div class="flex items-center justify-between">
-			<span class="text-2xl font-bold text-primary-500">
-				{price.toFixed(2)}€
-			</span>
+		<!-- Japanese Name -->
+		<div class="japanese-name text-japanese">
+			{category === 'sashimi' && '刺身'}
+			{category === 'nigiri' && '握り'}
+			{category === 'maki' && '巻き'}
+			{category === 'bento' && '弁当'}
+		</div>
+		
+		<!-- Footer -->
+		<div class="card-footer">
+			<div class="price-container">
+				<span class="price-label">Prix</span>
+				<span class="price-value">
+					{price.toFixed(2)}€
+				</span>
+			</div>
 			
-			<button class="add-to-cart-btn relative overflow-hidden bg-primary-600 hover:bg-primary-700 text-white p-3 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg" data-id={id} data-name={name} data-price={price}>
-				<Plus size={20} />
-				<div class="absolute inset-0 bg-white/20 transform scale-0 transition-transform duration-300 rounded-full"></div>
+			<button class="add-to-cart-premium" data-id={id} data-name={name} data-price={price}>
+				<div class="btn-content">
+					<Plus size={20} />
+					<span class="btn-text">Ajouter</span>
+				</div>
+				<div class="btn-effects">
+					<div class="btn-glow"></div>
+					<div class="btn-particles">
+						<span class="particle"></span>
+						<span class="particle"></span>
+						<span class="particle"></span>
+						<span class="particle"></span>
+					</div>
+				</div>
 			</button>
 		</div>
 	</div>
 	
-	<!-- Hover overlay -->
-	<div class="absolute inset-0 bg-gradient-to-t from-primary-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+	<!-- Card Glow Effect -->
+	<div class="card-glow"></div>
+	
+	<!-- Premium Border Animation -->
+	<div class="border-animation">
+		<div class="border-line border-top"></div>
+		<div class="border-line border-right"></div>
+		<div class="border-line border-bottom"></div>
+		<div class="border-line border-left"></div>
+	</div>
 </div>
 
 <style>
-	.add-to-cart-btn:hover .absolute {
-		transform: scale(1);
-	}
-	
-	.menu-card {
+	.menu-card-premium {
+		position: relative;
+		background: linear-gradient(135deg, 
+			rgba(255, 255, 255, 0.1) 0%, 
+			rgba(255, 255, 255, 0.05) 50%, 
+			rgba(196, 30, 58, 0.05) 100%);
+		backdrop-filter: blur(20px);
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		border-radius: 24px;
+		overflow: hidden;
+		transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+		cursor: pointer;
 		transform-origin: center;
 	}
 	
-	.menu-card::before {
+	.menu-card-premium::before {
 		content: '';
 		position: absolute;
 		inset: 0;
-		background: linear-gradient(45deg, transparent, rgba(220, 38, 38, 0.1), transparent);
+		background: linear-gradient(135deg, 
+			transparent 0%, 
+			rgba(212, 175, 55, 0.1) 50%, 
+			transparent 100%);
 		opacity: 0;
-		transition: opacity 0.3s ease;
+		transition: opacity 0.4s ease;
 		pointer-events: none;
 	}
 	
-	.menu-card:hover::before {
+	.menu-card-premium:hover::before {
 		opacity: 1;
+	}
+	
+	.menu-card-premium:hover {
+		transform: translateY(-12px) scale(1.02);
+		box-shadow: 
+			0 25px 50px rgba(0, 0, 0, 0.3),
+			0 0 0 1px rgba(196, 30, 58, 0.2),
+			0 0 50px rgba(196, 30, 58, 0.1);
+		border-color: rgba(196, 30, 58, 0.3);
+	}
+	
+	.menu-card-premium.popular {
+		border-color: rgba(212, 175, 55, 0.4);
+	}
+	
+	.menu-card-premium.popular:hover {
+		box-shadow: 
+			0 25px 50px rgba(0, 0, 0, 0.3),
+			0 0 0 1px rgba(212, 175, 55, 0.3),
+			0 0 50px rgba(212, 175, 55, 0.2);
+	}
+	
+	/* Badge System */
+	.card-badges {
+		position: absolute;
+		top: 16px;
+		left: 16px;
+		z-index: 10;
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+	
+	.badge {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		padding: 6px 12px;
+		border-radius: 20px;
+		font-size: 0.75rem;
+		font-weight: 600;
+		backdrop-filter: blur(10px);
+		position: relative;
+		overflow: hidden;
+	}
+	
+	.badge-popular {
+		background: linear-gradient(135deg, rgba(212, 175, 55, 0.9), rgba(255, 215, 0, 0.9));
+		color: var(--sushi-black);
+		box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+	}
+	
+	.badge-fresh {
+		background: linear-gradient(135deg, rgba(196, 30, 58, 0.9), rgba(255, 107, 107, 0.9));
+		color: var(--sushi-white);
+		box-shadow: 0 4px 15px rgba(196, 30, 58, 0.3);
+	}
+	
+	.badge-glow {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+		transform: translateX(-100%);
+		transition: transform 0.6s;
+	}
+	
+	.badge:hover .badge-glow {
+		transform: translateX(100%);
+	}
+	
+	/* Image Container */
+	.card-image-container {
+		position: relative;
+		aspect-ratio: 16/10;
+		overflow: hidden;
+		border-radius: 20px 20px 0 0;
+	}
+	
+	.card-image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	}
+	
+	.menu-card-premium:hover .card-image {
+		transform: scale(1.1) rotate(1deg);
+	}
+	
+	.image-overlay {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(
+			135deg,
+			transparent 0%,
+			rgba(0, 0, 0, 0.1) 50%,
+			rgba(196, 30, 58, 0.2) 100%
+		);
+		opacity: 0;
+		transition: opacity 0.4s ease;
+		z-index: 2;
+	}
+	
+	.menu-card-premium:hover .image-overlay {
+		opacity: 1;
+	}
+	
+	/* Floating Elements */
+	.floating-elements {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		z-index: 3;
+	}
+	
+	.float-element {
+		position: absolute;
+		font-size: 1.2rem;
+		opacity: 0;
+		transition: all 0.6s ease;
+	}
+	
+	.float-1 {
+		top: 20%;
+		left: 20%;
+		animation-delay: 0s;
+	}
+	
+	.float-2 {
+		top: 60%;
+		right: 25%;
+		animation-delay: 0.2s;
+	}
+	
+	.float-3 {
+		bottom: 30%;
+		left: 30%;
+		animation-delay: 0.4s;
+	}
+	
+	.menu-card-premium:hover .float-element {
+		opacity: 0.8;
+		animation: floatUp 2s ease-in-out infinite;
+	}
+	
+	@keyframes floatUp {
+		0%, 100% {
+			transform: translateY(0px) rotate(0deg);
+		}
+		50% {
+			transform: translateY(-10px) rotate(5deg);
+		}
+	}
+	
+	/* Quick View Button */
+	.quick-view-btn {
+		position: absolute;
+		bottom: 16px;
+		left: 50%;
+		transform: translateX(-50%) translateY(20px);
+		padding: 10px 20px;
+		background: rgba(255, 255, 255, 0.95);
+		backdrop-filter: blur(10px);
+		color: var(--sushi-black);
+		border: none;
+		border-radius: 20px;
+		font-weight: 600;
+		font-size: 0.85rem;
+		cursor: pointer;
+		opacity: 0;
+		transition: all 0.4s ease;
+		z-index: 4;
+	}
+	
+	.menu-card-premium:hover .quick-view-btn {
+		opacity: 1;
+		transform: translateX(-50%) translateY(0);
+	}
+	
+	.quick-view-btn:hover {
+		background: var(--sushi-white);
+		transform: translateX(-50%) translateY(-2px) scale(1.05);
+	}
+	
+	/* Card Content */
+	.card-content {
+		padding: 24px;
+		position: relative;
+		z-index: 5;
+	}
+	
+	.content-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		margin-bottom: 12px;
+	}
+	
+	.dish-name {
+		font-size: 1.25rem;
+		font-weight: 700;
+		color: var(--sushi-white);
+		margin: 0;
+		line-height: 1.2;
+		background: linear-gradient(135deg, var(--sushi-white) 0%, var(--sushi-gold) 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+	
+	.prep-time {
+		display: flex;
+		align-items: center;
+		gap: 4px;
+		color: rgba(255, 255, 255, 0.6);
+		font-size: 0.8rem;
+		font-weight: 500;
+	}
+	
+	.dish-description {
+		color: rgba(255, 255, 255, 0.7);
+		font-size: 0.9rem;
+		line-height: 1.5;
+		margin-bottom: 12px;
+	}
+	
+	.japanese-name {
+		font-size: 1.1rem;
+		color: var(--sushi-gold);
+		margin-bottom: 20px;
+		opacity: 0.8;
+	}
+	
+	/* Card Footer */
+	.card-footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 16px;
+	}
+	
+	.price-container {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+	}
+	
+	.price-label {
+		font-size: 0.75rem;
+		color: rgba(255, 255, 255, 0.5);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+	
+	.price-value {
+		font-size: 1.5rem;
+		font-weight: 700;
+		background: var(--gradient-sunset);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+	
+	/* Premium Add to Cart Button */
+	.add-to-cart-premium {
+		position: relative;
+		padding: 12px 20px;
+		background: var(--gradient-sunset);
+		border: none;
+		border-radius: 50px;
+		cursor: pointer;
+		overflow: hidden;
+		transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+		box-shadow: 0 8px 25px rgba(196, 30, 58, 0.3);
+	}
+	
+	.btn-content {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		color: var(--sushi-white);
+		font-weight: 600;
+		font-size: 0.9rem;
+		position: relative;
+		z-index: 2;
+	}
+	
+	.btn-effects {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+	}
+	
+	.btn-glow {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+		transform: translateX(-100%);
+		transition: transform 0.6s;
+	}
+	
+	.add-to-cart-premium:hover .btn-glow {
+		transform: translateX(100%);
+	}
+	
+	.add-to-cart-premium:hover {
+		transform: translateY(-3px) scale(1.05);
+		box-shadow: 0 15px 35px rgba(196, 30, 58, 0.4);
+	}
+	
+	.btn-particles {
+		position: absolute;
+		inset: 0;
+	}
+	
+	.particle {
+		position: absolute;
+		width: 4px;
+		height: 4px;
+		background: var(--sushi-gold);
+		border-radius: 50%;
+		opacity: 0;
+	}
+	
+	.particle:nth-child(1) { top: 20%; left: 20%; }
+	.particle:nth-child(2) { top: 20%; right: 20%; }
+	.particle:nth-child(3) { bottom: 20%; left: 20%; }
+	.particle:nth-child(4) { bottom: 20%; right: 20%; }
+	
+	.add-to-cart-premium:active .particle {
+		animation: particleBurst 0.6s ease-out;
+	}
+	
+	@keyframes particleBurst {
+		0% {
+			opacity: 0;
+			transform: scale(0);
+		}
+		50% {
+			opacity: 1;
+			transform: scale(1);
+		}
+		100% {
+			opacity: 0;
+			transform: scale(0) translateY(-20px);
+		}
+	}
+	
+	/* Card Glow Effect */
+	.card-glow {
+		position: absolute;
+		inset: -2px;
+		background: linear-gradient(135deg, 
+			rgba(196, 30, 58, 0.3) 0%, 
+			rgba(212, 175, 55, 0.3) 50%, 
+			rgba(196, 30, 58, 0.3) 100%);
+		border-radius: 26px;
+		opacity: 0;
+		transition: opacity 0.4s ease;
+		z-index: -1;
+		filter: blur(10px);
+	}
+	
+	.menu-card-premium:hover .card-glow {
+		opacity: 1;
+	}
+	
+	/* Border Animation */
+	.border-animation {
+		position: absolute;
+		inset: 0;
+		border-radius: 24px;
+		pointer-events: none;
+		z-index: 1;
+	}
+	
+	.border-line {
+		position: absolute;
+		background: var(--gradient-gold);
+		opacity: 0;
+		transition: opacity 0.4s ease;
+	}
+	
+	.border-top {
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 2px;
+		transform: scaleX(0);
+		transform-origin: left;
+	}
+	
+	.border-right {
+		top: 0;
+		right: 0;
+		bottom: 0;
+		width: 2px;
+		transform: scaleY(0);
+		transform-origin: top;
+	}
+	
+	.border-bottom {
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 2px;
+		transform: scaleX(0);
+		transform-origin: right;
+	}
+	
+	.border-left {
+		top: 0;
+		left: 0;
+		bottom: 0;
+		width: 2px;
+		transform: scaleY(0);
+		transform-origin: bottom;
+	}
+	
+	.menu-card-premium:hover .border-line {
+		opacity: 1;
+		transform: scale(1);
+		transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	}
+	
+	.menu-card-premium:hover .border-top {
+		transition-delay: 0s;
+	}
+	
+	.menu-card-premium:hover .border-right {
+		transition-delay: 0.15s;
+	}
+	
+	.menu-card-premium:hover .border-bottom {
+		transition-delay: 0.3s;
+	}
+	
+	.menu-card-premium:hover .border-left {
+		transition-delay: 0.45s;
+	}
+	
+	/* Responsive Design */
+	@media (max-width: 768px) {
+		.card-content {
+			padding: 20px;
+		}
+		
+		.dish-name {
+			font-size: 1.1rem;
+		}
+		
+		.price-value {
+			font-size: 1.3rem;
+		}
+		
+		.add-to-cart-premium {
+			padding: 10px 16px;
+		}
+		
+		.btn-content {
+			font-size: 0.85rem;
+		}
 	}
 </style>
 
 <script>
-	// Add to cart functionality
-	let cart = [];
+	// Enhanced cart functionality with premium animations
+	let cart = JSON.parse(localStorage.getItem('sushi-cart') || '[]');
+	
+	// Update cart count on page load
+	updateCartDisplay();
 	
 	document.addEventListener('click', (e) => {
-		if (e.target.closest('.add-to-cart-btn')) {
-			const button = e.target.closest('.add-to-cart-btn');
+		const button = e.target.closest('.add-to-cart-premium');
+		if (button) {
 			const id = button.getAttribute('data-id');
 			const name = button.getAttribute('data-name');
 			const price = parseFloat(button.getAttribute('data-price'));
 			
-			// Add item to cart
-			const existingItem = cart.find(item => item.id === id);
-			if (existingItem) {
-				existingItem.quantity += 1;
-			} else {
-				cart.push({ id, name, price, quantity: 1 });
-			}
-			
-			// Update cart count
-			const cartCount = document.getElementById('cart-count');
-			if (cartCount) {
-				const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-				cartCount.textContent = totalItems.toString();
-			}
-			
-			// Button animation
-			button.style.transform = 'scale(0.9)';
-			setTimeout(() => {
-				button.style.transform = 'scale(1)';
-			}, 150);
-			
-			// Show feedback
-			showAddToCartFeedback(name);
+			// Add item to cart with animation
+			addToCartWithAnimation(button, { id, name, price });
+		}
+		
+		const quickViewBtn = e.target.closest('.quick-view-btn');
+		if (quickViewBtn) {
+			showQuickView(quickViewBtn.closest('.menu-card-premium'));
 		}
 	});
 	
-	function showAddToCartFeedback(itemName) {
+	function addToCartWithAnimation(button, item) {
+		// Add to cart logic
+		const existingItem = cart.find(cartItem => cartItem.id === item.id);
+		if (existingItem) {
+			existingItem.quantity += 1;
+		} else {
+			cart.push({ ...item, quantity: 1 });
+		}
+		
+		// Save to localStorage
+		localStorage.setItem('sushi-cart', JSON.stringify(cart));
+		
+		// Update display
+		updateCartDisplay();
+		
+		// Button animation
+		button.style.transform = 'scale(0.95)';
+		setTimeout(() => {
+			button.style.transform = '';
+		}, 150);
+		
+		// Show premium feedback
+		showPremiumFeedback(item.name, button);
+		
+		// Trigger particle effect
+		triggerParticleEffect(button);
+	}
+	
+	function updateCartDisplay() {
+		const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+		const cartBadges = document.querySelectorAll('#cart-count, .mobile-cart-badge');
+		
+		cartBadges.forEach(badge => {
+			if (badge) {
+				badge.textContent = totalItems.toString();
+				if (totalItems > 0) {
+					badge.style.animation = 'cartBadgePulse 0.5s ease-out';
+				}
+			}
+		});
+	}
+	
+	function showPremiumFeedback(itemName, button) {
 		const feedback = document.createElement('div');
-		feedback.className = 'fixed top-20 right-4 bg-primary-600 text-white px-4 py-2 rounded-lg shadow-lg z-50 transition-all duration-300';
-		feedback.textContent = `${itemName} ajouté au panier`;
+		feedback.className = 'premium-feedback';
+		feedback.innerHTML = `
+			<div class="feedback-content">
+				<div class="feedback-icon">✨</div>
+				<div class="feedback-text">
+					<div class="feedback-title">${itemName}</div>
+					<div class="feedback-subtitle">ajouté au panier</div>
+				</div>
+			</div>
+		`;
+		
+		// Position relative to button
+		const rect = button.getBoundingClientRect();
+		feedback.style.cssText = `
+			position: fixed;
+			top: ${rect.top - 60}px;
+			left: ${rect.left + rect.width / 2}px;
+			transform: translateX(-50%);
+			z-index: 1000;
+			background: linear-gradient(135deg, rgba(196, 30, 58, 0.95), rgba(212, 175, 55, 0.95));
+			backdrop-filter: blur(20px);
+			color: white;
+			padding: 12px 20px;
+			border-radius: 50px;
+			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+			animation: feedbackSlideIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+			pointer-events: none;
+		`;
 		
 		document.body.appendChild(feedback);
 		
 		setTimeout(() => {
-			feedback.style.transform = 'translateX(100%)';
-			feedback.style.opacity = '0';
+			feedback.style.animation = 'feedbackSlideOut 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards';
 		}, 2000);
 		
 		setTimeout(() => {
 			document.body.removeChild(feedback);
 		}, 2500);
 	}
+	
+	function triggerParticleEffect(button) {
+		const particles = button.querySelectorAll('.particle');
+		particles.forEach((particle, index) => {
+			setTimeout(() => {
+				particle.style.animation = 'particleBurst 0.6s ease-out';
+			}, index * 100);
+		});
+	}
+	
+	function showQuickView(card) {
+		// Create quick view modal (simplified for demo)
+		const modal = document.createElement('div');
+		modal.className = 'quick-view-modal';
+		modal.innerHTML = `
+			<div class="modal-backdrop"></div>
+			<div class="modal-content">
+				<button class="modal-close">×</button>
+				<div class="modal-body">
+					<h3>Aperçu rapide</h3>
+					<p>Fonctionnalité d'aperçu rapide à implémenter</p>
+				</div>
+			</div>
+		`;
+		
+		modal.style.cssText = `
+			position: fixed;
+			inset: 0;
+			z-index: 1000;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			animation: modalFadeIn 0.3s ease-out;
+		`;
+		
+		document.body.appendChild(modal);
+		document.body.style.overflow = 'hidden';
+		
+		// Close modal functionality
+		const closeModal = () => {
+			modal.style.animation = 'modalFadeOut 0.3s ease-out forwards';
+			document.body.style.overflow = '';
+			setTimeout(() => document.body.removeChild(modal), 300);
+		};
+		
+		modal.querySelector('.modal-close').addEventListener('click', closeModal);
+		modal.querySelector('.modal-backdrop').addEventListener('click', closeModal);
+	}
+	
+	// Add CSS animations
+	const style = document.createElement('style');
+	style.textContent = `
+		@keyframes feedbackSlideIn {
+			0% {
+				opacity: 0;
+				transform: translateX(-50%) translateY(20px) scale(0.8);
+			}
+			100% {
+				opacity: 1;
+				transform: translateX(-50%) translateY(0) scale(1);
+			}
+		}
+		
+		@keyframes feedbackSlideOut {
+			0% {
+				opacity: 1;
+				transform: translateX(-50%) translateY(0) scale(1);
+			}
+			100% {
+				opacity: 0;
+				transform: translateX(-50%) translateY(-20px) scale(0.8);
+			}
+		}
+		
+		@keyframes modalFadeIn {
+			0% { opacity: 0; }
+			100% { opacity: 1; }
+		}
+		
+		@keyframes modalFadeOut {
+			0% { opacity: 1; }
+			100% { opacity: 0; }
+		}
+		
+		.premium-feedback .feedback-content {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+		}
+		
+		.premium-feedback .feedback-icon {
+			font-size: 1.2rem;
+		}
+		
+		.premium-feedback .feedback-title {
+			font-weight: 600;
+			font-size: 0.9rem;
+		}
+		
+		.premium-feedback .feedback-subtitle {
+			font-size: 0.8rem;
+			opacity: 0.8;
+		}
+		
+		.quick-view-modal .modal-backdrop {
+			position: absolute;
+			inset: 0;
+			background: rgba(0, 0, 0, 0.8);
+			backdrop-filter: blur(10px);
+		}
+		
+		.quick-view-modal .modal-content {
+			position: relative;
+			background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+			backdrop-filter: blur(20px);
+			border: 1px solid rgba(255, 255, 255, 0.2);
+			border-radius: 20px;
+			padding: 2rem;
+			max-width: 500px;
+			width: 90%;
+			color: white;
+		}
+		
+		.quick-view-modal .modal-close {
+			position: absolute;
+			top: 1rem;
+			right: 1rem;
+			background: none;
+			border: none;
+			color: white;
+			font-size: 1.5rem;
+			cursor: pointer;
+			width: 32px;
+			height: 32px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 50%;
+			transition: background 0.3s ease;
+		}
+		
+		.quick-view-modal .modal-close:hover {
+			background: rgba(255, 255, 255, 0.1);
+		}
+	`;
+	document.head.appendChild(style);
 </script>
