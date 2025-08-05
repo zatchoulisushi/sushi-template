@@ -1,142 +1,120 @@
 ---
-import { ChevronDown, Sparkles, Star } from 'lucide-astro';
+import { ChevronDown, Sparkles } from 'lucide-astro';
 ---
 
-<section class="hero-ultra relative min-h-screen flex items-center justify-center overflow-hidden">
-  <!-- Ultra-Premium Background Layers -->
-  <div class="hero-bg-layer hero-bg-obsidian"></div>
-  <div class="hero-bg-layer hero-bg-imperial"></div>
-  <div class="hero-bg-layer hero-bg-holographic"></div>
+<section class="hero-section relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Dynamic Background Layers -->
+  <div class="hero-bg-layer hero-bg-primary"></div>
+  <div class="hero-bg-layer hero-bg-secondary"></div>
+  <div class="hero-bg-layer hero-bg-pattern"></div>
   
-  <!-- Kintsugi Decorative Lines -->
-  <div class="kintsugi-lines">
-    <div class="kintsugi-line kintsugi-line-1"></div>
-    <div class="kintsugi-line kintsugi-line-2"></div>
-    <div class="kintsugi-line kintsugi-line-3"></div>
-  </div>
-  
-  <!-- Floating Sakura Particles -->
-  <div class="sakura-system">
-    <div class="sakura-particle" style="left: 5%; animation-delay: 0s;"></div>
-    <div class="sakura-particle" style="left: 15%; animation-delay: 3s;"></div>
-    <div class="sakura-particle" style="left: 25%; animation-delay: 6s;"></div>
-    <div class="sakura-particle" style="left: 35%; animation-delay: 1s;"></div>
-    <div class="sakura-particle" style="left: 45%; animation-delay: 4s;"></div>
-    <div class="sakura-particle" style="left: 55%; animation-delay: 7s;"></div>
-    <div class="sakura-particle" style="left: 65%; animation-delay: 2s;"></div>
-    <div class="sakura-particle" style="left: 75%; animation-delay: 5s;"></div>
-    <div class="sakura-particle" style="left: 85%; animation-delay: 8s;"></div>
-    <div class="sakura-particle" style="left: 95%; animation-delay: 3s;"></div>
-  </div>
-  
-  <!-- Japanese Calligraphy Background -->
-  <div class="japanese-calligraphy">
-    <span class="calligraphy-char char-1" style="top: 15%; left: 8%;">美</span>
-    <span class="calligraphy-char char-2" style="top: 25%; right: 12%;">味</span>
-    <span class="calligraphy-char char-3" style="bottom: 35%; left: 15%;">寿</span>
-    <span class="calligraphy-char char-4" style="bottom: 25%; right: 18%;">司</span>
-    <span class="calligraphy-char char-5" style="top: 45%; left: 5%;">道</span>
-    <span class="calligraphy-char char-6" style="top: 55%; right: 8%;">心</span>
+  <!-- Floating Sakura Petals -->
+  <div class="sakura-container">
+    <div class="sakura-petal" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="sakura-petal" style="left: 20%; animation-delay: 2s;"></div>
+    <div class="sakura-petal" style="left: 30%; animation-delay: 4s;"></div>
+    <div class="sakura-petal" style="left: 70%; animation-delay: 1s;"></div>
+    <div class="sakura-petal" style="left: 80%; animation-delay: 3s;"></div>
+    <div class="sakura-petal" style="left: 90%; animation-delay: 5s;"></div>
   </div>
   
   <!-- Main Content -->
-  <div class="hero-content relative z-20 text-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Imperial Logo Animation -->
+  <div class="hero-content relative z-20 text-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Japanese Character Decoration -->
+    <div class="japanese-chars">
+      <span class="char-decoration" style="top: 10%; left: 15%;">寿</span>
+      <span class="char-decoration" style="top: 20%; right: 15%;">司</span>
+      <span class="char-decoration" style="bottom: 30%; left: 10%;">美</span>
+      <span class="char-decoration" style="bottom: 20%; right: 20%;">味</span>
+    </div>
+    
+    <!-- Logo Animation -->
     <div class="hero-logo-container">
-      <div class="hero-logo-imperial">
-        <div class="logo-rings-system">
-          <div class="logo-ring ring-outer"></div>
-          <div class="logo-ring ring-middle"></div>
-          <div class="logo-ring ring-inner"></div>
-        </div>
-        <div class="sushi-icon-imperial">
-          <span class="sushi-emoji">🍣</span>
-          <div class="icon-glow"></div>
+      <div class="hero-logo">
+        <span class="sushi-icon">🍣</span>
+        <div class="logo-rings">
+          <div class="ring ring-1"></div>
+          <div class="ring ring-2"></div>
+          <div class="ring ring-3"></div>
         </div>
       </div>
     </div>
     
-    <!-- Ultra-Premium Title -->
-    <h1 class="hero-title-ultra heading-ultra">
-      <span class="title-line title-line-main">
-        <span class="letter-imperial" style="animation-delay: 0.1s">O</span>
-        <span class="letter-imperial" style="animation-delay: 0.2s">S</span>
-        <span class="letter-imperial" style="animation-delay: 0.3s">U</span>
-        <span class="letter-imperial" style="animation-delay: 0.4s">S</span>
-        <span class="letter-imperial" style="animation-delay: 0.5s">H</span>
-        <span class="letter-imperial" style="animation-delay: 0.6s">I</span>
+    <!-- Main Title with Premium Typography -->
+    <h1 class="hero-title heading-primary">
+      <span class="title-line title-line-1">
+        <span class="letter" style="animation-delay: 0.1s">O</span>
+        <span class="letter" style="animation-delay: 0.2s">S</span>
+        <span class="letter" style="animation-delay: 0.3s">U</span>
+        <span class="letter" style="animation-delay: 0.4s">S</span>
+        <span class="letter" style="animation-delay: 0.5s">H</span>
+        <span class="letter" style="animation-delay: 0.6s">I</span>
       </span>
     </h1>
     
-    <!-- Japanese Subtitle with Holographic Effect -->
-    <div class="hero-subtitle-imperial text-japanese">
-      <span class="japanese-main text-shimmer">極上の寿司体験</span>
-      <span class="subtitle-translation heading-elegant">L'Art Culinaire Transcendé</span>
+    <!-- Japanese Subtitle -->
+    <div class="hero-subtitle text-japanese">
+      <span class="japanese-text">おいしい寿司</span>
+      <span class="subtitle-translation">L'Art Authentique du Sushi</span>
     </div>
     
-    <!-- Ultra-Premium Description -->
-    <p class="hero-description-imperial">
-      Plongez dans un univers gastronomique où chaque bouchée devient une œuvre d'art,
+    <!-- Premium Description -->
+    <p class="hero-description">
+      Découvrez l'excellence culinaire japonaise dans chaque bouchée. 
       <br class="hidden sm:block">
-      où la tradition millénaire rencontre l'innovation avant-gardiste.
+      Une expérience gastronomique transcendante qui éveille tous vos sens.
     </p>
     
-    <!-- Imperial CTA System -->
-    <div class="hero-cta-imperial">
-      <a href="/commander" class="btn-imperial group">
-        <Sparkles size={20} />
-        <span class="btn-text-imperial">Expérience Culinaire</span>
-        <div class="btn-particles-imperial">
-          <span class="particle-imperial"></span>
-          <span class="particle-imperial"></span>
-          <span class="particle-imperial"></span>
-          <span class="particle-imperial"></span>
+    <!-- CTA Buttons with Advanced Effects -->
+    <div class="hero-cta">
+      <a href="/commander" class="btn-hero-primary group">
+        <span class="btn-text">Commander Maintenant</span>
+        <div class="btn-glow"></div>
+        <div class="btn-particles">
+          <span class="particle"></span>
+          <span class="particle"></span>
+          <span class="particle"></span>
         </div>
       </a>
       
-      <a href="/menu" class="btn-kintsugi">
-        <Star size={20} />
-        <span>Découvrir l'Art</span>
+      <a href="/menu" class="btn-hero-secondary">
+        <Sparkles size={20} />
+        <span>Découvrir le Menu</span>
       </a>
     </div>
     
-    <!-- Ultra-Premium Stats -->
-    <div class="hero-stats-imperial">
-      <div class="stat-item-imperial">
-        <div class="stat-number-imperial kintsugi-gradient">20+</div>
-        <div class="stat-label-imperial">Années de Maîtrise</div>
-        <div class="stat-decoration"></div>
+    <!-- Premium Stats -->
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Années d'Excellence</div>
       </div>
-      <div class="stat-divider-imperial"></div>
-      <div class="stat-item-imperial">
-        <div class="stat-number-imperial kintsugi-gradient">1000+</div>
-        <div class="stat-label-imperial">Expériences Uniques</div>
-        <div class="stat-decoration"></div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Clients Satisfaits</div>
       </div>
-      <div class="stat-divider-imperial"></div>
-      <div class="stat-item-imperial">
-        <div class="stat-number-imperial kintsugi-gradient">★★★★★</div>
-        <div class="stat-label-imperial">Excellence Absolue</div>
-        <div class="stat-decoration"></div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-number">★★★★★</div>
+        <div class="stat-label">Excellence Reconnue</div>
       </div>
     </div>
   </div>
   
-  <!-- Ultra-Premium Scroll Indicator -->
-  <div class="scroll-indicator-imperial">
-    <div class="scroll-text-imperial text-japanese">発見</div>
-    <ChevronDown size={28} class="scroll-arrow-imperial" />
-    <div class="scroll-line-imperial"></div>
-    <div class="scroll-glow"></div>
+  <!-- Scroll Indicator with Animation -->
+  <div class="scroll-indicator">
+    <div class="scroll-text">Découvrir</div>
+    <ChevronDown size={24} class="scroll-arrow" />
+    <div class="scroll-line"></div>
   </div>
 </section>
 
 <style>
-  .hero-ultra {
+  .hero-section {
     position: relative;
-    background: var(--obsidian-black);
+    background: var(--sushi-black);
     overflow: hidden;
-    min-height: 100vh;
   }
   
   /* Background Layers */
@@ -146,78 +124,109 @@ import { ChevronDown, Sparkles, Star } from 'lucide-astro';
     z-index: 1;
   }
   
-  .hero-bg-obsidian {
-    background: radial-gradient(ellipse at center, rgba(26, 26, 35, 0.8) 0%, var(--obsidian-black) 70%);
+  .hero-bg-primary {
+    background: radial-gradient(ellipse at center, rgba(196, 30, 58, 0.15) 0%, transparent 70%);
   }
   
-  .hero-bg-imperial {
+  .hero-bg-secondary {
     background: linear-gradient(135deg, 
-      rgba(196, 30, 58, 0.1) 0%, 
+      rgba(212, 175, 55, 0.1) 0%, 
       transparent 30%, 
       transparent 70%, 
-      rgba(212, 175, 55, 0.08) 100%);
+      rgba(196, 30, 58, 0.1) 100%);
   }
   
-  .hero-bg-holographic {
-    background: 
-      radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.06) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(196, 30, 58, 0.04) 0%, transparent 50%),
-      radial-gradient(circle at 50% 10%, rgba(0, 168, 107, 0.03) 0%, transparent 50%);
-    animation: holographicShift 25s ease-in-out infinite;
+  .hero-bg-pattern {
+    background-image: 
+      radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(196, 30, 58, 0.1) 0%, transparent 50%);
   }
   
-  /* Japanese Calligraphy */
-  .japanese-calligraphy {
+  /* Sakura Petals Animation */
+  .sakura-container {
     position: absolute;
     inset: 0;
     z-index: 2;
     pointer-events: none;
   }
   
-  .calligraphy-char {
+  .sakura-petal {
     position: absolute;
-    font-family: var(--font-japanese);
-    font-size: clamp(80px, 15vw, 180px);
-    font-weight: 100;
-    color: rgba(212, 175, 55, 0.08);
-    animation: levitate 8s ease-in-out infinite;
-    user-select: none;
+    top: -10px;
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle, var(--sushi-red-light) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: fallingSakura 15s linear infinite;
+    opacity: 0.7;
   }
   
-  .char-1 { animation-delay: 0s; }
-  .char-2 { animation-delay: 1s; }
-  .char-3 { animation-delay: 2s; }
-  .char-4 { animation-delay: 3s; }
-  .char-5 { animation-delay: 4s; }
-  .char-6 { animation-delay: 5s; }
+  @keyframes fallingSakura {
+    0% {
+      transform: translateY(-10px) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.7;
+    }
+    90% {
+      opacity: 0.7;
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
   
-  /* Sakura System */
-  .sakura-system {
+  /* Japanese Characters */
+  .japanese-chars {
     position: absolute;
     inset: 0;
-    z-index: 3;
+    z-index: 1;
     pointer-events: none;
+  }
+  
+  .char-decoration {
+    position: absolute;
+    font-family: 'Noto Sans JP', serif;
+    font-size: 120px;
+    font-weight: 300;
+    color: rgba(212, 175, 55, 0.1);
+    animation: floatChar 6s ease-in-out infinite;
+  }
+  
+  @keyframes floatChar {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
   }
   
   /* Hero Logo */
   .hero-logo-container {
-    margin-bottom: var(--space-4xl);
-    animation: logoImperialEntrance 3s cubic-bezier(0.23, 1, 0.32, 1);
+    margin-bottom: 3rem;
+    animation: logoEntrance 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   
-  .hero-logo-imperial {
+  .hero-logo {
     position: relative;
     display: inline-block;
   }
   
-  .logo-rings-system {
+  .sushi-icon {
+    font-size: 120px;
+    display: block;
+    position: relative;
+    z-index: 10;
+    animation: iconFloat 3s ease-in-out infinite;
+  }
+  
+  .logo-rings {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
   
-  .logo-ring {
+  .ring {
     position: absolute;
     border: 2px solid;
     border-radius: 50%;
@@ -226,237 +235,31 @@ import { ChevronDown, Sparkles, Star } from 'lucide-astro';
     transform: translate(-50%, -50%);
   }
   
-  .ring-outer {
-    width: 200px;
-    height: 200px;
-    border-color: rgba(212, 175, 55, 0.3);
-    animation: ringImperialPulse 6s ease-in-out infinite;
+  .ring-1 {
+    width: 140px;
+    height: 140px;
+    border-color: rgba(196, 30, 58, 0.3);
+    animation: ringPulse 4s ease-in-out infinite;
   }
   
-  .ring-middle {
-    width: 160px;
-    height: 160px;
-    border-color: rgba(196, 30, 58, 0.2);
-    animation: ringImperialPulse 6s ease-in-out infinite 2s;
+  .ring-2 {
+    width: 180px;
+    height: 180px;
+    border-color: rgba(212, 175, 55, 0.2);
+    animation: ringPulse 4s ease-in-out infinite 1s;
   }
   
-  .ring-inner {
-    width: 120px;
-    height: 120px;
-    border-color: rgba(0, 168, 107, 0.15);
-    animation: ringImperialPulse 6s ease-in-out infinite 4s;
+  .ring-3 {
+    width: 220px;
+    height: 220px;
+    border-color: rgba(196, 30, 58, 0.1);
+    animation: ringPulse 4s ease-in-out infinite 2s;
   }
   
-  .sushi-icon-imperial {
-    position: relative;
-    z-index: 10;
-  }
-  
-  .sushi-emoji {
-    font-size: clamp(80px, 12vw, 140px);
-    display: block;
-    animation: iconImperialFloat 4s ease-in-out infinite;
-    filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.5));
-  }
-  
-  .icon-glow {
-    position: absolute;
-    inset: -20px;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.3) 0%, transparent 70%);
-    border-radius: 50%;
-    animation: iconGlowPulse 3s ease-in-out infinite;
-  }
-  
-  /* Hero Title */
-  .hero-title-ultra {
-    font-size: clamp(4rem, 15vw, 12rem);
-    margin-bottom: var(--space-2xl);
-    position: relative;
-  }
-  
-  .title-line-main {
-    display: block;
-    position: relative;
-  }
-  
-  .letter-imperial {
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(100px) rotateX(90deg) scale(0.5);
-    animation: letterImperialReveal 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-  }
-  
-  /* Hero Subtitle */
-  .hero-subtitle-imperial {
-    margin-bottom: var(--space-3xl);
-    text-align: center;
-  }
-  
-  .japanese-main {
-    display: block;
-    font-size: clamp(1.5rem, 4vw, 3rem);
-    margin-bottom: var(--space-sm);
-    animation: fadeInUp 1.5s ease-out 1.5s both;
-  }
-  
-  .subtitle-translation {
-    display: block;
-    font-size: clamp(1.2rem, 3vw, 2rem);
-    color: rgba(229, 228, 226, 0.8);
-    font-weight: 400;
-    letter-spacing: 0.05em;
-    animation: fadeInUp 1.5s ease-out 1.8s both;
-  }
-  
-  /* Hero Description */
-  .hero-description-imperial {
-    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-    color: rgba(229, 228, 226, 0.7);
-    margin-bottom: var(--space-4xl);
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.8;
-    font-weight: 300;
-    letter-spacing: 0.01em;
-    animation: fadeInUp 1.5s ease-out 2.1s both;
-  }
-  
-  /* CTA System */
-  .hero-cta-imperial {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
-    justify-content: center;
-    align-items: center;
-    margin-bottom: var(--space-5xl);
-    animation: fadeInUp 1.5s ease-out 2.4s both;
-  }
-  
-  .btn-text-imperial {
-    position: relative;
-    z-index: 2;
-  }
-  
-  .btn-particles-imperial {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-  }
-  
-  .particle-imperial {
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    background: var(--golden-kintsugi);
-    border-radius: 50%;
-    opacity: 0;
-  }
-  
-  .particle-imperial:nth-child(1) { top: 20%; left: 20%; }
-  .particle-imperial:nth-child(2) { top: 20%; right: 20%; }
-  .particle-imperial:nth-child(3) { bottom: 20%; left: 20%; }
-  .particle-imperial:nth-child(4) { bottom: 20%; right: 20%; }
-  
-  .btn-imperial:hover .particle-imperial {
-    animation: particleImperialBurst 0.8s ease-out;
-  }
-  
-  /* Hero Stats */
-  .hero-stats-imperial {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: var(--space-3xl);
-    animation: fadeInUp 1.5s ease-out 2.7s both;
-  }
-  
-  .stat-item-imperial {
-    text-align: center;
-    position: relative;
-  }
-  
-  .stat-number-imperial {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
-    margin-bottom: var(--space-xs);
-    position: relative;
-  }
-  
-  .stat-label-imperial {
-    font-size: clamp(0.8rem, 1.5vw, 1rem);
-    color: rgba(229, 228, 226, 0.6);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-weight: 300;
-  }
-  
-  .stat-decoration {
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 30px;
-    height: 1px;
-    background: var(--gradient-kintsugi);
-    animation: expandLine 2s ease-out 3s both;
-  }
-  
-  .stat-divider-imperial {
-    width: 1px;
-    height: 60px;
-    background: linear-gradient(to bottom, transparent, var(--golden-kintsugi), transparent);
-    opacity: 0.6;
-  }
-  
-  /* Scroll Indicator */
-  .scroll-indicator-imperial {
-    position: absolute;
-    bottom: var(--space-3xl);
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-sm);
-    color: rgba(229, 228, 226, 0.6);
-    animation: fadeInUp 1.5s ease-out 3s both;
-  }
-  
-  .scroll-text-imperial {
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-weight: 300;
-  }
-  
-  .scroll-arrow-imperial {
-    animation: bounceImperial 2s infinite;
-  }
-  
-  .scroll-line-imperial {
-    width: 1px;
-    height: 40px;
-    background: linear-gradient(to bottom, var(--golden-kintsugi), transparent);
-    position: relative;
-  }
-  
-  .scroll-glow {
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    width: 20px;
-    height: 20px;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.4) 0%, transparent 70%);
-    border-radius: 50%;
-    animation: glowPulse 2s ease-in-out infinite;
-  }
-  
-  /* Animations */
-  @keyframes logoImperialEntrance {
+  @keyframes logoEntrance {
     0% {
       opacity: 0;
-      transform: scale(0.3) rotate(-180deg);
+      transform: scale(0.5) rotate(-180deg);
     }
     100% {
       opacity: 1;
@@ -464,119 +267,307 @@ import { ChevronDown, Sparkles, Star } from 'lucide-astro';
     }
   }
   
-  @keyframes ringImperialPulse {
+  @keyframes iconFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes ringPulse {
     0%, 100% { 
       transform: translate(-50%, -50%) scale(1);
       opacity: 0.3;
     }
     50% { 
-      transform: translate(-50%, -50%) scale(1.15);
-      opacity: 0.7;
+      transform: translate(-50%, -50%) scale(1.1);
+      opacity: 0.6;
     }
   }
   
-  @keyframes iconImperialFloat {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    33% { transform: translateY(-12px) rotate(2deg); }
-    66% { transform: translateY(6px) rotate(-1deg); }
+  /* Hero Title */
+  .hero-title {
+    font-size: clamp(4rem, 12vw, 8rem);
+    margin-bottom: 2rem;
+    position: relative;
   }
   
-  @keyframes iconGlowPulse {
-    0%, 100% { opacity: 0.3; transform: scale(1); }
-    50% { opacity: 0.7; transform: scale(1.1); }
+  .title-line-1 {
+    display: block;
+    background: linear-gradient(135deg, var(--sushi-white) 0%, var(--sushi-gold) 50%, var(--sushi-red-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
   }
   
-  @keyframes letterImperialReveal {
+  .letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(50px) rotateX(90deg);
+    animation: letterReveal 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+  
+  @keyframes letterReveal {
     0% {
       opacity: 0;
-      transform: translateY(100px) rotateX(90deg) scale(0.5);
+      transform: translateY(50px) rotateX(90deg);
     }
     100% {
       opacity: 1;
-      transform: translateY(0) rotateX(0deg) scale(1);
+      transform: translateY(0) rotateX(0deg);
     }
   }
   
-  @keyframes particleImperialBurst {
+  /* Hero Subtitle */
+  .hero-subtitle {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .japanese-text {
+    display: block;
+    font-size: 2rem;
+    color: var(--sushi-gold);
+    margin-bottom: 0.5rem;
+    animation: fadeInUp 1s ease-out 1s both;
+  }
+  
+  .subtitle-translation {
+    display: block;
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    animation: fadeInUp 1s ease-out 1.2s both;
+  }
+  
+  /* Hero Description */
+  .hero-description {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    animation: fadeInUp 1s ease-out 1.4s both;
+  }
+  
+  /* CTA Buttons */
+  .hero-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4rem;
+    animation: fadeInUp 1s ease-out 1.6s both;
+  }
+  
+  .btn-hero-primary {
+    position: relative;
+    padding: 20px 40px;
+    background: var(--gradient-sunset);
+    color: var(--sushi-white);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 20px 40px rgba(196, 30, 58, 0.3);
+  }
+  
+  .btn-text {
+    position: relative;
+    z-index: 10;
+  }
+  
+  .btn-glow {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+  }
+  
+  .btn-hero-primary:hover .btn-glow {
+    transform: translateX(100%);
+  }
+  
+  .btn-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  
+  .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--sushi-gold);
+    border-radius: 50%;
+    opacity: 0;
+  }
+  
+  .btn-hero-primary:hover .particle {
+    animation: particleExplode 0.6s ease-out;
+  }
+  
+  .particle:nth-child(1) { top: 20%; left: 20%; animation-delay: 0s; }
+  .particle:nth-child(2) { top: 50%; right: 20%; animation-delay: 0.1s; }
+  .particle:nth-child(3) { bottom: 20%; left: 50%; animation-delay: 0.2s; }
+  
+  @keyframes particleExplode {
     0% {
       opacity: 0;
       transform: scale(0);
     }
     50% {
       opacity: 1;
-      transform: scale(1.5);
+      transform: scale(1);
     }
     100% {
       opacity: 0;
-      transform: scale(0) translateY(-30px);
+      transform: scale(0) translateY(-20px);
     }
   }
   
-  @keyframes bounceImperial {
+  .btn-hero-primary:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 30px 60px rgba(196, 30, 58, 0.4);
+  }
+  
+  .btn-hero-secondary {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 16px 32px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: var(--sushi-white);
+    text-decoration: none;
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-hero-secondary:hover {
+    background: rgba(212, 175, 55, 0.2);
+    border-color: var(--sushi-gold);
+    transform: translateY(-2px);
+  }
+  
+  /* Hero Stats */
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    animation: fadeInUp 1s ease-out 1.8s both;
+  }
+  
+  .stat-item {
+    text-align: center;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--sushi-gold);
+    margin-bottom: 0.5rem;
+  }
+  
+  .stat-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  
+  .stat-divider {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, var(--sushi-gold), transparent);
+  }
+  
+  /* Scroll Indicator */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.6);
+    animation: fadeInUp 1s ease-out 2s both;
+  }
+  
+  .scroll-text {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  
+  .scroll-arrow {
+    animation: bounce 2s infinite;
+  }
+  
+  .scroll-line {
+    width: 1px;
+    height: 30px;
+    background: linear-gradient(to bottom, var(--sushi-gold), transparent);
+  }
+  
+  @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {
       transform: translateY(0);
     }
     40% {
-      transform: translateY(-15px);
+      transform: translateY(-10px);
     }
     60% {
-      transform: translateY(-8px);
-    }
-  }
-  
-  @keyframes glowPulse {
-    0%, 100% { opacity: 0.4; transform: scale(1); }
-    50% { opacity: 0.8; transform: scale(1.3); }
-  }
-  
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(60px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+      transform: translateY(-5px);
     }
   }
   
   /* Responsive Design */
   @media (max-width: 768px) {
-    .ring-outer { width: 150px; height: 150px; }
-    .ring-middle { width: 120px; height: 120px; }
-    .ring-inner { width: 90px; height: 90px; }
+    .char-decoration {
+      font-size: 80px;
+    }
     
-    .hero-stats-imperial {
+    .sushi-icon {
+      font-size: 80px;
+    }
+    
+    .ring-1 { width: 100px; height: 100px; }
+    .ring-2 { width: 130px; height: 130px; }
+    .ring-3 { width: 160px; height: 160px; }
+    
+    .japanese-text {
+      font-size: 1.5rem;
+    }
+    
+    .subtitle-translation {
+      font-size: 1.2rem;
+    }
+    
+    .hero-description {
+      font-size: 1.1rem;
+    }
+    
+    .hero-stats {
       flex-direction: column;
-      gap: var(--space-xl);
+      gap: 1rem;
     }
     
-    .stat-divider-imperial {
-      width: 60px;
+    .stat-divider {
+      width: 40px;
       height: 1px;
-      background: linear-gradient(to right, transparent, var(--golden-kintsugi), transparent);
-    }
-    
-    .hero-cta-imperial {
-      gap: var(--space-xl);
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .calligraphy-char {
-      font-size: clamp(60px, 12vw, 120px);
-    }
-    
-    .hero-logo-container {
-      margin-bottom: var(--space-3xl);
-    }
-    
-    .hero-subtitle-imperial {
-      margin-bottom: var(--space-2xl);
-    }
-    
-    .hero-description-imperial {
-      margin-bottom: var(--space-3xl);
+      background: linear-gradient(to right, transparent, var(--sushi-gold), transparent);
     }
   }
 </style>
